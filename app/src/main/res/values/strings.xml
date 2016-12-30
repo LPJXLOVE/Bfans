@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Bfans</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="please_input_your_phone_number">请输入手机号码</string>
+    <string name="please_input_verify_code">请输入验证码</string>
+    <string name="get_verify_code">|获取验证码</string>
+    <string name="have_account_go_login">已有帐号？去登录</string>
+    <string name="sign_in_present_you_agree_us">注册代表你已同意友球用户协议</string>
+    <string name="please_input_your_password">请输入你的密码</string>
+    <dimen name="margin_top_36">36dp</dimen>
+    <string name="forget_password">忘记密码？</string>
+    <string name="Sign_in">注册</string>
+    <string name="Login_in">登录</string>
+    <string name="go_sign_in">没有帐号？去注册</string>
+    <string name="photo_confirm">%1$s/9确认</string>
+
+
+    <string name="mapAppKey">5190af0f5750c9fbed5b36249f136f48</string>
+
+    <string name="BmobAppID">1dee31aa787ee1d35e502134494f24ee</string>
+    //短信验证码
+    <string name="MobAppKey">17019560204c4</string>
+    <string name="MobAppSecret">ffe7ccf2c2238eb6a5324598cf0c9f6c</string>
+
+
+    //用户等级类别
+    <string-array name="client_level">
+        <item>球场菜鸟</item>
+        <item>球场熟人</item>
+        <item>球场高手</item>
+        <item>CUBA新秀</item>
+        <item>CUBA替补</item>
+        <item>CUBA主力</item>
+        <item>CUBA球星</item>
+        <item>CBA新秀</item>
+        <item>CBA替补</item>
+        <item>CBA主力</item>
+        <item>CBA球星</item>
+        <item>NBA新秀</item>
+        <item>NBA替补</item>
+        <item>NBA主力</item>
+        <item>NBA球星</item>
+        <item>NBA名人堂</item>
+    </string-array>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="the_last_page">最后一页了</string>
+
+
+</resources>

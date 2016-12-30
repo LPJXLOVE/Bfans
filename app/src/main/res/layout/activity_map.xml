@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.technology.lpjxlove.bfans.UI.MapActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_chevron_left_black_24dp"
+        app:title=" "
+        android:id="@+id/toolbar">
+    </android.support.v7.widget.Toolbar>
+
+    <com.amap.api.maps2d.MapView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/map_view">
+    </com.amap.api.maps2d.MapView>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycle_view"
+        android:layout_below="@+id/map_view">
+    </android.support.v7.widget.RecyclerView>
+    <ListView
+        android:scrollbars="none"
+        android:background="@android:color/white"
+        android:id="@+id/list_view"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</RelativeLayout>

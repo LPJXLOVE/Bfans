@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.technology.lpjxlove.bfans.UI.AddCircleActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_close_black_24dp"
+        app:title="发动态">
+    </android.support.v7.widget.Toolbar>
+       <EditText
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="@android:color/white"
+        android:minHeight="120dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@color/light_gray"
+        android:hint="此时的想法..."
+        android:id="@+id/et_circle" />
+
+
+    <Button
+        android:textColor="@android:color/black"
+        android:background="@color/colorPrimary"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定发送"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/btn_commit"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:id="@+id/RL_photo_video"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_circle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:gravity="bottom"
+            android:id="@+id/iv_add_photo"
+            android:padding="8dp"
+            android:textSize="12sp"
+            android:text="图片"
+            android:drawableTop="@drawable/images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+       <!-- <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycle_view"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp">
+        </android.support.v7.widget.RecyclerView>-->
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginBottom="16dp"
+            android:id="@+id/nine_layout"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:textSize="12sp"
+           android:padding="8dp"
+            android:id="@+id/iv_add_video"
+            android:gravity="bottom"
+            android:text="视频"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/video"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_add_photo"
+            android:layout_toEndOf="@+id/iv_add_photo" />
+    </RelativeLayout>
+
+</RelativeLayout>

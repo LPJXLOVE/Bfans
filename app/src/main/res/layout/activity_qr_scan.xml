@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_qr_scan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.technology.lpjxlove.bfans.UI.QrScanActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:title="二维码(扫描快速加入约战)"
+        app:navigationIcon="?homeAsUpIndicator">
+    </android.support.v7.widget.Toolbar>
+
+    <com.technology.lpjxlove.bfans.UI.CustomView.MyZXingScannerView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scan_view">
+
+    </com.technology.lpjxlove.bfans.UI.CustomView.MyZXingScannerView>
+</RelativeLayout>

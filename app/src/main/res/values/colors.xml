@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cddc39</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_gray">#8e8d8d</color>
+    <color name="gray">#cfcdcd</color>
+    <color name="light_gray">#e4e3e3</color>
+    <color name="hint_gray">#aba9a9</color>
+    <color name="blue_light">#64a1c7</color>
+    <color name="LinearLayoutColor">#3df5f4f5</color>
+    <color name="Dialog_background_Color">#f1efef</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

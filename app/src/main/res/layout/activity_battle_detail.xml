@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.technology.lpjxlove.bfans.UI.BattleDetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="?homeAsUpIndicator">
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:textColor="@color/gray"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/tv_number"
+        android:layout_below="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已经报名：0人"/>
+    <android.support.v7.widget.RecyclerView
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        android:layout_below="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycle_view">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.CardView
+        android:transitionName="card_view"
+        android:id="@+id/card_view"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="0.5dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv_avatar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:roundAsCircle="true"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tv_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/iv_avatar"
+                android:text="ETLove"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="14sp" />
+
+            <TextView
+
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_rank"
+                android:layout_alignStart="@+id/tv_rank"
+                android:layout_below="@+id/tv_rank"
+                android:layout_marginTop="2dp"
+                android:drawableLeft="@drawable/ic_update_black_24dp"
+                android:text="刚刚发布"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/iv_avatar"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rectangle"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="应战"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/tv_state"
+                android:layout_alignLeft="@+id/iv_avatar"
+                android:layout_alignRight="@+id/tv_state"
+                android:layout_alignStart="@+id/iv_avatar"
+                android:layout_below="@+id/iv_avatar"
+                android:layout_marginTop="16dp"
+                android:text="我们是中国人，我为中国自豪，哈哈哈哈哈！"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/iv_avatar"
+                android:layout_alignStart="@+id/iv_avatar"
+                android:layout_below="@+id/tv_battle"
+                android:layout_marginTop="4dp"
+                android:text="开打时间："
+                android:textColor="@android:color/background_dark" />
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_battle_"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_location"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@+id/iv_location"
+                android:layout_toRightOf="@+id/iv_location"
+                android:text="天河区体育中心篮球馆"
+                android:textColor="@color/blue_light"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_battle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_content"
+                android:layout_alignStart="@+id/tv_content"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="4dp"
+                android:text="对战类型："
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_content"
+                android:layout_alignStart="@+id/tv_content"
+                android:layout_below="@+id/iv_avatar"
+                android:layout_marginTop="16dp"
+                android:text="约战对象："
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/tv_battle_object"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_battle"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="高中生"
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/tv_battle_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3vs3"
+                android:textColor="@android:color/background_dark"
+                android:layout_above="@+id/tv_battle_"
+                android:layout_toRightOf="@+id/tv_battle"
+                android:layout_toEndOf="@+id/tv_battle"
+                android:layout_alignTop="@+id/tv_battle" />
+
+            <TextView
+                android:id="@+id/tv_battle_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2016-09-07-下午16：00"
+                android:textColor="@android:color/background_dark"
+                android:layout_alignBaseline="@+id/tv"
+                android:layout_alignBottom="@+id/tv"
+                android:layout_toRightOf="@+id/tv_battle"
+                android:layout_toEndOf="@+id/tv_battle" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

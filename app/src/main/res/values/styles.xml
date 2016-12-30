@@ -1,0 +1,93 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/holo_orange_light</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyAppTheme" parent="AppTheme">
+
+      <!--  <item name="android:windowAnimationStyle">@style/ActivityAnimStyle</item>-->
+
+    </style>
+
+
+    <style name="ActivityAnimStyle">
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+        <item name="android:windowEnterAnimation">@anim/slide_in_</item>
+    </style>
+
+    <!--<style name="transParentStateBarStyle" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>-->
+
+
+
+    <style name="MyFullScreenStyle" parent="android:Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+
+    </style>
+
+
+    <style name="MyDialog" parent="AlertDialog.AppCompat">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimStyle</item>
+    </style>
+
+
+
+    <style name="MyTransparentDialog" parent="AlertDialog.AppCompat">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+    </style>
+
+    <style name="TopAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
+
+
+
+
+
+
+    <style name="MyShareDialogStyle">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+    </style>
+
+
+    <declare-styleable name="DampingView">
+        <attr name="Text" format="string"></attr>
+        <attr name="TextColor" format="color"></attr>
+        <attr name="TextSize" format="dimension"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="LoadLayout">
+        <attr name="LoadText" format="string"></attr>
+        <attr name="LoadTextColor" format="color"></attr>
+        <attr name="LoadTextSize" format="dimension"></attr>
+        <attr name="LoadImage" format="reference"></attr>
+    </declare-styleable>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+</resources>

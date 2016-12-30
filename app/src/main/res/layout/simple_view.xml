@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.drawee.view.SimpleDraweeView android:layout_width="24dp"
+    android:layout_height="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    app:actualImageScaleType="focusCrop"
+    app:backgroundImage="@drawable/ic_person_black_24dp"
+    app:roundAsCircle="true"
+    app:failureImage="@drawable/ic_person_black_24dp"
+    android:id="@+id/iv_avatar"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

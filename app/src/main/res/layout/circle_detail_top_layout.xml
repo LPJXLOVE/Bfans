@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <!-- <include
+        android:id="@+id/top"
+        layout="@layout/circle_item_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </include>-->
+    <android.support.v7.widget.CardView
+        android:id="@+id/top"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="1dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/relative_layout_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray">
+                </View>
+
+                <LinearLayout
+                    android:baselineAligned="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/iv_qr_scan"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_chat_bubble_outline_black_24dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+
+                        <TextView
+                            android:id="@+id/tv_comment_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_toEndOf="@+id/iv_qr_scan"
+                            android:layout_toRightOf="@+id/iv_qr_scan"
+                            android:text="0"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@color/gray">
+                        </View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.technology.lpjxlove.bfans.UI.CustomView.GoodView
+                            android:id="@+id/iv_good"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_good"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+
+                        <TextView
+                            android:id="@+id/tv_good_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toEndOf="@+id/iv_good"
+                            android:layout_toRightOf="@+id/iv_good"
+                            android:text="0"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@color/gray" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginRight="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/iv_share"
+                            android:layout_width="20dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/_share"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+
+                        <TextView
+                            android:id="@+id/tv_share"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="分享"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textSize="14sp"
+                            android:layout_alignBottom="@+id/iv_share"
+                            android:layout_toRightOf="@+id/iv_share"
+                            android:layout_toEndOf="@+id/iv_share" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_item"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:id="@+id/iv_avatar"
+                    app:roundAsCircle="true"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_rank"
+                    android:layout_toRightOf="@+id/iv_avatar"
+                    android:layout_toEndOf="@+id/iv_avatar"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:text="ETLove"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    />
+                <TextView
+
+                    android:drawableLeft="@drawable/ic_update_black_24dp"
+                    android:drawableStart="@drawable/ic_update_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="刚刚发布"
+                    android:textSize="10sp"
+                    android:id="@+id/tv_time"
+                    android:layout_below="@+id/tv_rank"
+                    android:layout_alignLeft="@+id/tv_rank"
+                    android:layout_alignStart="@+id/tv_rank"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@android:color/darker_gray"/>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:gravity="center"
+                    android:text="加入"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:drawableLeft="@drawable/ic_add_black_24dp"
+                    android:drawableStart="@drawable/ic_add_black_24dp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/rectangle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_state"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/iv_avatar"
+                    />
+                <com.technology.lpjxlove.bfans.UI.CustomView.NineLayout
+                    android:layout_marginTop="12dp"
+                    android:layout_alignStart="@+id/iv_avatar"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_below="@+id/tv_content"
+                    android:id="@+id/nine_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_rank">
+                </com.technology.lpjxlove.bfans.UI.CustomView.NineLayout>
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_alignEnd="@+id/tv_state"
+                    android:layout_alignStart="@+id/iv_avatar"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_content"
+                    android:text="我们是中国人，我为中国自豪，哈哈哈哈哈！"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:layout_below="@+id/tv_time"
+                    android:layout_alignLeft="@+id/iv_avatar"
+                    android:layout_alignRight="@+id/tv_state" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+ <!--   <android.support.v7.widget.RecyclerView
+        android:padding="16dp"
+        android:id="@+id/recycle_view_good"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top"
+        android:background="@android:color/white"
+        android:layout_marginBottom="16dp">
+    </android.support.v7.widget.RecyclerView>-->
+    <com.technology.lpjxlove.bfans.UI.CustomView.HorizontalView
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/white"
+        android:layout_below="@+id/top"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_linear">
+
+    </com.technology.lpjxlove.bfans.UI.CustomView.HorizontalView>
+</RelativeLayout>

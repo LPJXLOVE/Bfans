@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UI.MainActivity">
+    <RelativeLayout
+        style="@android:style/ThemeOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/relative_layout">
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            app:tabTextColor="@android:color/black"
+            app:tabSelectedTextColor="@android:color/black"
+            app:tabIndicatorHeight="4dp"
+            app:tabIndicatorColor="@android:color/black"
+            app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:id="@+id/tab_layout"
+            app:tabGravity="center">
+        </android.support.design.widget.TabLayout>
+
+        <ImageView
+            android:src="@drawable/ic_qr_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_qr_scan"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+        <TextView
+            android:drawableStart="@drawable/ic_place_black_16dp"
+            android:text="广州"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:id="@+id/tv_location"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager"
+        android:layout_below="@+id/relative_layout">
+    </android.support.v4.view.ViewPager>
+
+    <include layout="@layout/home_item_layout"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+ </include>
+
+</RelativeLayout>
