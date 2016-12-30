@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
 
 import com.technology.lpjxlove.bfans.Adapter.MyBattleAdapter;
 import com.technology.lpjxlove.bfans.R;
@@ -31,6 +32,7 @@ public class MyBattleActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         recycleView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recycleView.setHasFixedSize(true);
+
         recycleView.setAdapter(new MyBattleAdapter());
 
     }
