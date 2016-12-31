@@ -32,7 +32,7 @@ public class MyBattleActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         recycleView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recycleView.setHasFixedSize(true);
-
+        Toast.makeText(this, "测试3", Toast.LENGTH_SHORT).show();
         recycleView.setAdapter(new MyBattleAdapter());
 
     }
