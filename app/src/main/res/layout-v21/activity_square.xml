@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.MainActivity">
-    <RelativeLayout
+   <!-- <RelativeLayout
         style="@android:style/ThemeOverlay"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -35,7 +35,7 @@
             android:layout_alignParentEnd="true" />
         <TextView
             android:drawableStart="@drawable/ic_place_black_16dp"
-            android:text="广州"
+            android:text="定位中"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
@@ -44,20 +44,33 @@
             android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
-    </RelativeLayout>
+    </RelativeLayout>-->
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_pager"
-        android:layout_below="@+id/relative_layout">
+        android:id="@+id/view_pager">
     </android.support.v4.view.ViewPager>
 
-    <include layout="@layout/home_item_layout"
+   <!-- <include layout="@layout/home_item_layout"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
- </include>
+ </include>-->
+
+    <android.support.design.widget.BottomNavigationView
+        android:padding="4dp"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/design_navigation_view"
+        android:layout_alignParentBottom="true"/>
+    <ImageView
+        android:layout_below="@+id/view_pager"
+        android:layout_alignTop="@+id/design_navigation_view"
+        android:layout_width="match_parent"
+        android:src="@color/gray"
+        android:layout_height="0.5dp"/>
 
 </RelativeLayout>

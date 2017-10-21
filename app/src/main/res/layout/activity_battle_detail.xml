@@ -7,6 +7,7 @@
     tools:context="com.technology.lpjxlove.bfans.UI.BattleDetailActivity">
 
     <android.support.v7.widget.Toolbar
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -52,6 +53,7 @@
             android:paddingTop="8dp">
 
             <com.facebook.drawee.view.SimpleDraweeView
+                app:failureImage="@drawable/basketball_logo"
                 android:id="@+id/iv_avatar"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -60,7 +62,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tv_rank"
+                android:id="@+id/tv_nick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -74,9 +76,9 @@
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tv_rank"
-                android:layout_alignStart="@+id/tv_rank"
-                android:layout_below="@+id/tv_rank"
+                android:layout_alignLeft="@+id/tv_nick"
+                android:layout_alignStart="@+id/tv_nick"
+                android:layout_below="@+id/tv_nick"
                 android:layout_marginTop="2dp"
                 android:drawableLeft="@drawable/ic_update_black_24dp"
                 android:text="刚刚发布"

@@ -3,6 +3,7 @@ package com.technology.lpjxlove.bfans.UI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,8 @@ import com.technology.lpjxlove.bfans.MVP.SendTaskPresenter;
 import com.technology.lpjxlove.bfans.MVP.SendTaskView;
 import com.technology.lpjxlove.bfans.MyApplication;
 import com.technology.lpjxlove.bfans.R;
+import com.technology.lpjxlove.bfans.UI.CustomView.PreviewPhoto.PreviewActivity;
+import com.technology.lpjxlove.bfans.Util.ActivityUtils;
 import com.technology.lpjxlove.bfans.Util.Constant;
 
 import java.util.ArrayList;
@@ -85,8 +88,14 @@ public class AddCircleActivity extends AppCompatActivity implements SendTaskView
                     i.putParcelableArrayListExtra("selectPicture", (ArrayList<? extends Parcelable>) list);
                     startActivityForResult(i,Constant.GET_ALBUM_PHOTO_TASK);
                 }else {
-                    // TODO: 2016/9/29 进入预览界面
-                    Toast.makeText(AddCircleActivity.this, "进入预览界面！", Toast.LENGTH_SHORT).show();
+                    ArrayList<String> imageUrl=new ArrayList<>();
+                    for (ImageBean imageBean:list){
+                        String s1=imageBean.ImageUrl;
+                        imageUrl.add(s1);
+                    }
+
+                    ActivityUtils.gotoPreviewActivity(AddCircleActivity.this,imageUrl,Integer.valueOf(s));
+                    //Toast.makeText(AddCircleActivity.this, "进入预览界面！"+s, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -136,17 +145,22 @@ public class AddCircleActivity extends AppCompatActivity implements SendTaskView
         CircleEntity circleEntity=new CircleEntity();
         circleEntity.setAuthor(user);
         String content=etCircle.getText().toString();
+
         if (!TextUtils.isEmpty(content)){
-            circleEntity.setContent(etCircle.getText().toString());
+            circleEntity.setContent(content);
         }
-        List<String> bitmapUrl=new ArrayList<>();
+
+
         if (list!=null){
+            List<String> bitmapUrl=new ArrayList<>();
             for (ImageBean image:list){
                 String url=image.ImageUrl.substring(7);
                 bitmapUrl.add(url);
             }
+            circleEntity.setBitmapUrl(bitmapUrl);
         }
-        circleEntity.setBitmapUrl(bitmapUrl);
+
+
         sendPresenter.UpLoading(Constant.CIRCLE_SEND_TASK,circleEntity);
 
     }
@@ -190,13 +204,15 @@ public class AddCircleActivity extends AppCompatActivity implements SendTaskView
 
     @Override
     public void showErrorFrame(String tip) {
-        Toast.makeText(this, ""+tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(btnCommit,tip,Snackbar.LENGTH_SHORT).show();
+      //  Toast.makeText(this, ""+tip, Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void showSuccess() {
-        Toast.makeText(this, "发送成功！", Toast.LENGTH_SHORT).show();
+        Snackbar.make(btnCommit,"发送成功！",Snackbar.LENGTH_SHORT).show();
+       // Toast.makeText(this, "发送成功！", Toast.LENGTH_SHORT).show();
 
 
     }

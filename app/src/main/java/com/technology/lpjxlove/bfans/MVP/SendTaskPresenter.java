@@ -79,4 +79,9 @@ public class SendTaskPresenter implements BasePresenter<Object> {
     public void onLoadingFailed(String tip) {
         sendTaskView.showErrorFrame(tip);
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

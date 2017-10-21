@@ -9,4 +9,5 @@ public interface BasePresenter<T> {
     void onLoading(int taskID, int ways,Object...objects);
     void onLoadingSuccess(List<T> data);
     void onLoadingFailed(String tip);
+    void onComplete();
 }

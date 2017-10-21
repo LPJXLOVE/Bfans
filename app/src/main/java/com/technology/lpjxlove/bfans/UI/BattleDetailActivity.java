@@ -2,22 +2,18 @@ package com.technology.lpjxlove.bfans.UI;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
@@ -36,6 +32,7 @@ import com.technology.lpjxlove.bfans.MVP.SendTaskPresenter;
 import com.technology.lpjxlove.bfans.MVP.SendTaskView;
 import com.technology.lpjxlove.bfans.MyApplication;
 import com.technology.lpjxlove.bfans.R;
+import com.technology.lpjxlove.bfans.UI.Dialog.BattleMemberDialog;
 import com.technology.lpjxlove.bfans.UI.Dialog.JoinInDialog;
 import com.technology.lpjxlove.bfans.UI.Dialog.LoadingDialog;
 import com.technology.lpjxlove.bfans.UI.Dialog.QRDialog;
@@ -58,7 +55,7 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
     Toolbar toolbar;
     @InjectView(R.id.iv_avatar)
     SimpleDraweeView ivAvatar;
-    @InjectView(R.id.tv_rank)
+    @InjectView(R.id.tv_nick)
     TextView tvNick;
     @InjectView(R.id.tv_time)
     TextView tvTime;
@@ -101,6 +98,7 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_battle_detail);
+
         ButterKnife.inject(this);
         toolbar.inflateMenu(R.menu.qr_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -171,7 +169,12 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
         itemClick=new Action1<Integer>() {//item点击事件
             @Override
             public void call(Integer integer) {
-
+                BattleJoinEntity entity=adapter.getData().get(integer);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("user",entity.getJoinInPeople());
+                BattleMemberDialog dialog=new BattleMemberDialog();
+                dialog.setArguments(bundle);
+                dialog.show(getSupportFragmentManager(),"detail");
             }
         };
 
@@ -180,12 +183,12 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
 
     }
 
-    @OnClick({R.id.iv_avatar, R.id.tv_rank, R.id.tv_state, R.id.tv_location})
+    @OnClick({R.id.iv_avatar, R.id.tv_nick, R.id.tv_state, R.id.tv_location})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_avatar:
                 break;
-            case R.id.tv_rank:
+            case R.id.tv_nick:
                 break;
             case R.id.tv_state:
                 JoinInDialog d=new JoinInDialog();
@@ -218,8 +221,8 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
 
             sendPresenter.onLoading(Constant.BATTLE_JOIN_PEOPLE_TASK,0,e);
         }
-
-        Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(relativeLayoutItem,tip,Snackbar.LENGTH_SHORT).show();
+       // Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -253,6 +256,14 @@ public class BattleDetailActivity extends AppCompatActivity implements Callback,
     @Override
     public void LoadingData(int taskID, int ways) {
          dialog=new LoadingDialog();
-        dialog.show(getSupportFragmentManager(),"join");
+        dialog.show(getSupportFragmentManager(),"参战中...");
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sendPresenter.setSendTaskView(null);
+        sendPresenter=null;
     }
 }

@@ -117,7 +117,7 @@ public class AddPhotoAdapter extends RecyclerView.Adapter<AddPhotoAdapter.MyHold
                             if (getAdapterPosition()==data.size()){
                                 action1.call("add");
                             }else {
-                                action1.call(data.get(getAdapterPosition()).ImageUrl);
+                                action1.call(String.valueOf(getAdapterPosition()));
                             }
 
                         }

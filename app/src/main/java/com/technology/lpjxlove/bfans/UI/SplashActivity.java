@@ -17,7 +17,7 @@ import cn.bmob.v3.BmobUser;
 import hugo.weaving.DebugLog;
 
 public class SplashActivity extends Activity implements LocationUtils.OnFinishListener {
-    private LocationUtils locationUtils;
+  //  private LocationUtils locationUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,9 @@ public class SplashActivity extends Activity implements LocationUtils.OnFinishLi
 
 
     private void init() {
-        locationUtils=new LocationUtils(this);
+       /* locationUtils=new LocationUtils(this);
         locationUtils.startLocation();
+*/
         MyHandle myHandle = new MyHandle(this);
         Message message = myHandle.obtainMessage();
         User user = BmobUser.getCurrentUser(User.class);
@@ -39,9 +40,14 @@ public class SplashActivity extends Activity implements LocationUtils.OnFinishLi
         } else {
             message.what = Constant.GO_HOME;
         }
-        myHandle.sendMessageDelayed(message, 3000);
+        myHandle.sendMessageDelayed(message, 0);
 
     }
+
+
+
+
+
 
     @Override
     public void onFinish() {
@@ -87,6 +93,6 @@ public class SplashActivity extends Activity implements LocationUtils.OnFinishLi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        locationUtils.onDestroy();
+      //  locationUtils.onDestroy();
     }
 }

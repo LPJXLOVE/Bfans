@@ -1,14 +1,15 @@
 package com.technology.lpjxlove.bfans.UI;
 
 import android.content.Intent;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,6 +22,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.technology.lpjxlove.bfans.Adapter.RecentlyBattleAdapter;
+import com.technology.lpjxlove.bfans.Bean.BattleEntity;
 import com.technology.lpjxlove.bfans.Bean.User;
 import com.technology.lpjxlove.bfans.Interface.Callback;
 import com.technology.lpjxlove.bfans.MVP.DaggerSendComponent;
@@ -29,6 +32,7 @@ import com.technology.lpjxlove.bfans.MVP.SendTaskPresenter;
 import com.technology.lpjxlove.bfans.MVP.SendTaskView;
 import com.technology.lpjxlove.bfans.MyApplication;
 import com.technology.lpjxlove.bfans.R;
+import com.technology.lpjxlove.bfans.UI.CustomView.PreviewPhoto.PreviewActivity;
 import com.technology.lpjxlove.bfans.UI.CustomView.WaveView;
 import com.technology.lpjxlove.bfans.UI.Dialog.ModifyNameDialog;
 import com.technology.lpjxlove.bfans.Util.ActivityUtils;
@@ -36,6 +40,7 @@ import com.technology.lpjxlove.bfans.Util.Constant;
 import com.technology.lpjxlove.bfans.Util.ImageUtils;
 import com.technology.lpjxlove.bfans.Util.RankTransFormUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,11 +50,11 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
 
-public class MyActivity extends AppCompatActivity implements Callback, SendTaskView<Object>,WaveView.OnWaveAnimationListener {
+public class MyActivity extends AppCompatActivity implements Callback, SendTaskView<Object>, WaveView.OnWaveAnimationListener {
 
     @InjectView(R.id.iv_avatar)
     SimpleDraweeView ivAvatar;
-    @InjectView(R.id.tv_rank)
+    @InjectView(R.id.tv_nick)
     TextView tvNick;
     @InjectView(R.id.iv_back)
     ImageView ivBack;
@@ -61,37 +66,15 @@ public class MyActivity extends AppCompatActivity implements Callback, SendTaskV
     RelativeLayout relativeLayoutCircle;
     @InjectView(R.id.relative_layout_team)
     RelativeLayout relativeLayoutTeam;
-    @InjectView(R.id.tv_location)
-    TextView tvLocation;
-    @InjectView(R.id.tv_battle_object)
-    TextView tvBattleObject;
-    @InjectView(R.id.tv_battle_type)
-    TextView tvBattleType;
-
-    @InjectView(R.id.relative_layout_item)
-    RelativeLayout relativeLayoutItem;
     @Inject
     SendTaskPresenter sendPresenter;
     @InjectView(R.id.wave_view)
     WaveView waveView;
-    @InjectView(R.id.imageView6)
-    ImageView imageView6;
-    @InjectView(R.id.textView8)
-    TextView textView8;
-    @InjectView(R.id.imageView7)
-    ImageView imageView7;
-    @InjectView(R.id.imageView4)
-    ImageView imageView4;
-    @InjectView(R.id.textView7)
-    TextView textView7;
-    @InjectView(R.id.imageView5)
-    ImageView imageView5;
-    @InjectView(R.id.iv_location)
-    ImageView ivLocation;
-    @InjectView(R.id.textView2)
-    TextView textView2;
-    @InjectView(R.id.tv_battle_)
-    TextView tvBattle;
+    @InjectView(R.id.recycle_view)
+    RecyclerView recycleView;
+    @InjectView(R.id.relative_layout_setting)
+    RelativeLayout relativeLayoutSetting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,9 +117,24 @@ public class MyActivity extends AppCompatActivity implements Callback, SendTaskV
                 .inject(this);
         sendPresenter.setSendTaskView(this);
         waveView.setOnWaveAnimationListener(this);
+
+
+        recycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recycleView.setHasFixedSize(true);
+        List<BattleEntity> entities = new ArrayList<>();
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        entities.add(new BattleEntity());
+        recycleView.setAdapter(new RecentlyBattleAdapter(entities));
+
+
     }
 
-    @OnClick({R.id.iv_avatar, R.id.tv_rank, R.id.iv_back, R.id.relativeLayout_level, R.id.relativeLayout_circle, R.id.relative_layout_team, R.id.relative_layout_item})
+    @OnClick({R.id.iv_avatar, R.id.tv_nick, R.id.iv_back, R.id.relativeLayout_level, R.id.relativeLayout_circle, R.id.relative_layout_team,R.id.relative_layout_setting})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_avatar:
@@ -144,7 +142,7 @@ public class MyActivity extends AppCompatActivity implements Callback, SendTaskV
                 i.putExtra("flag", Constant.AVATAR_PICTURE);
                 startActivityForResult(i, Constant.AVATAR_PICTURE);
                 break;
-            case R.id.tv_rank:
+            case R.id.tv_nick:
                 ModifyNameDialog dialog = new ModifyNameDialog();
                 dialog.setCallback(this);
                 dialog.show(getSupportFragmentManager(), tvNick.getText().toString());
@@ -155,13 +153,14 @@ public class MyActivity extends AppCompatActivity implements Callback, SendTaskV
             case R.id.relativeLayout_level:
                 break;
             case R.id.relativeLayout_circle:
-                ActivityUtils.gotoActivity(this, MyCircleActivity.class);
+                ActivityUtils.gotoActivity(this, PreviewActivity.class);
                 break;
             case R.id.relative_layout_team:
-                ActivityUtils.gotoActivity(this,MyBattleActivity.class);
+                ActivityUtils.gotoActivity(this, MyBattleActivity.class);
                 break;
-            case R.id.relative_layout_item:
+            case R.id.relative_layout_setting:
                 break;
+
         }
     }
 
@@ -176,13 +175,14 @@ public class MyActivity extends AppCompatActivity implements Callback, SendTaskV
 
     @Override
     public void showErrorFrame(String tip) {
+        Snackbar.make(ivAvatar, tip, Snackbar.LENGTH_SHORT).show();
         Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showSuccess() {
-        Toast.makeText(this, "修改成功！", Toast.LENGTH_SHORT).show();
-
+        Snackbar.make(ivAvatar, "修改成功", Snackbar.LENGTH_SHORT).show();
+        // Toast.makeText(this, "修改成功！", Toast.LENGTH_SHORT).show();
     }
 
     @Override

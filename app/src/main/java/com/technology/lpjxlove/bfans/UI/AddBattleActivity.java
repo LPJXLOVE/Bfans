@@ -3,6 +3,7 @@ package com.technology.lpjxlove.bfans.UI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -202,16 +203,19 @@ public class AddBattleActivity extends AppCompatActivity implements  Callback, S
         String showText;
         if (!selectType){
             showText="请填写约战类型";
-            Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
+            Snackbar.make(btnCommit,showText,Snackbar.LENGTH_SHORT).show();
+         //   Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
         }else if (!selectObject){
             showText="请填写约战对象";
-            Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
+            Snackbar.make(btnCommit,showText,Snackbar.LENGTH_SHORT).show();
+          //  Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
         }/*else if (!selectTime){
             showText="请填写约战日期";
             Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
         }*/else if (tvLocation==null){
             showText="请填写约战地点";
-            Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
+            Snackbar.make(btnCommit,showText,Snackbar.LENGTH_SHORT).show();
+           // Toast.makeText(AddBattleActivity.this, showText, Toast.LENGTH_SHORT).show();
         }else {
 
 
@@ -254,12 +258,14 @@ public class AddBattleActivity extends AppCompatActivity implements  Callback, S
 
     @Override
     public void showErrorFrame(String tip) {
-        Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(btnCommit,tip,Snackbar.LENGTH_SHORT).show();
+      //  Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
         load.dismiss();
     }
 
     @Override
     public void showSuccess() {
+       // Snackbar.make(btnCommit, "发起成功！",Snackbar.LENGTH_SHORT).show();
         Toast.makeText(this, "发起成功！", Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -272,7 +278,7 @@ public class AddBattleActivity extends AppCompatActivity implements  Callback, S
     @Override
     public void LoadingData(int taskID, int ways) {
         load=new LoadingDialog();
-        load.show(getSupportFragmentManager(),"share");
+        load.show(getSupportFragmentManager(),"发起中");
 
     }
 

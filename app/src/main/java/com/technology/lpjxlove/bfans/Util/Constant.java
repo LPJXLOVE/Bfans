@@ -35,6 +35,7 @@ public class Constant {
     public static final int MODIFY_AVATAR_TASK =0x29;
     public static final int MODIFY_NICK_TASK =0x30;
     public static final int QUERY_CIRCLE_COMMENT_AND_LIKES_TASK =0x31;
+    public static final int UPDATE_INSTALLATION_TASK =32;
 
     public static final String TAG="task";
 
@@ -42,6 +43,7 @@ public class Constant {
         public static  String cityName;
         public static String districtName;
         public static String streetName;
+        public static String provinceName;
         public static double Latitude;
         public static double Longitude;
     }

@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             android:id="@+id/relative_layout_item">
             <com.facebook.drawee.view.SimpleDraweeView
+                app:failureImage="@drawable/basketball_logo"
                 app:roundAsCircle="true"
                 android:layout_marginTop="8dp"
                 android:layout_width="48dp"
@@ -28,7 +29,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_rank"
+                android:id="@+id/tv_nick"
                 android:text="高中生"
                 android:layout_below="@+id/iv_avatar"
                 android:layout_centerHorizontal="true" />

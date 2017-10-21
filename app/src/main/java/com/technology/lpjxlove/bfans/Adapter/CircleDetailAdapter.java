@@ -184,6 +184,12 @@ public class CircleDetailAdapter extends RecyclerView.Adapter<CircleDetailAdapte
             NineGridPhotoAdapter adapter = new NineGridPhotoAdapter(context, data.get(position).getBitmapUrl());
             holder.nineLayout.setVisibility(View.VISIBLE);
             holder.nineLayout.setAdapter(adapter, 1);
+            holder.nineLayout.setOnItemClickListener(new NineLayout.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    imageClick.call(String.valueOf(position));
+                }
+            });
 
             //设置点赞的样式
             if (data.get(position).isLike()){
@@ -353,7 +359,7 @@ public class CircleDetailAdapter extends RecyclerView.Adapter<CircleDetailAdapte
         MyHolder(View itemView, int ViewType, Context context) {
             super(itemView);
             ivAvatar = (SimpleDraweeView) itemView.findViewById(R.id.iv_avatar);
-            tvNick = (TextView) itemView.findViewById(R.id.tv_rank);
+            tvNick = (TextView) itemView.findViewById(R.id.tv_nick);
             tvTime = (TextView) itemView.findViewById(R.id.tv_time);
             tvContent = (TextView) itemView.findViewById(R.id.tv_content);
             nineLayout = (NineLayout) itemView.findViewById(R.id.nine_layout);

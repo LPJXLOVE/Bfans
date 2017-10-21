@@ -11,9 +11,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         app:actualImageScaleType="focusCrop"
-        app:backgroundImage="@drawable/ic_person_black_24dp"
         app:roundAsCircle="true"
-        app:failureImage="@drawable/ic_person_black_24dp"
+        app:failureImage="@drawable/basketball_logo"
         android:id="@+id/iv_avatar" />
 
 </RelativeLayout>

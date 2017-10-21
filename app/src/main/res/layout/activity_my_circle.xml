@@ -3,9 +3,14 @@
 android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
+        android:visibility="gone"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:id="@+id/head_iv"/>
+   <me.relex.photodraweeview.PhotoDraweeView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/photo"/>
 </RelativeLayout>
 

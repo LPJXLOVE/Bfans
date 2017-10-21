@@ -5,8 +5,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
@@ -26,6 +28,14 @@ import rx.functions.Action1;
  * Created by LPJXLOVE on 2016/9/8.
  */
 public class NineGridPhotoAdapter extends NineGridAdapter {
+    public Action1<String> getAddClickListener() {
+        return addClickListener;
+    }
+
+    public void setAddClickListener(Action1<String> addClickListener) {
+        this.addClickListener = addClickListener;
+    }
+
     private Action1<String> addClickListener;
     private Context context;
     public NineGridPhotoAdapter(Context context, List list) {
@@ -54,7 +64,7 @@ public class NineGridPhotoAdapter extends NineGridAdapter {
     }
 
     @Override
-    public View getView(int i, View view) {
+    public View getView(final int i, View view) {
        SimpleDraweeView iv=new SimpleDraweeView(context);
             String path= (String) list.get(i);
             final Uri uri = Uri.parse(path);

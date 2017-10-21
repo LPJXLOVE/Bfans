@@ -17,7 +17,6 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.technology.lpjxlove.bfans.Bean.BattleJoinEntity;
 import com.technology.lpjxlove.bfans.Bean.User;
-import com.technology.lpjxlove.bfans.Interface.ItemClickListener;
 import com.technology.lpjxlove.bfans.R;
 import com.technology.lpjxlove.bfans.Util.RankTransFormUtils;
 
@@ -96,7 +95,7 @@ public class BattleTeammateAdapter extends BaseAdapter<BattleJoinEntity,BattleTe
         public MyHolder(View itemView, final Action1<Integer> itemClick) {
             super(itemView);
             ivAvatar= (SimpleDraweeView) itemView.findViewById(R.id.iv_avatar);
-            tvRank= (TextView) itemView.findViewById(R.id.tv_rank);
+            tvRank= (TextView) itemView.findViewById(R.id.tv_nick);
             relativeLayout_item= (RelativeLayout) itemView.findViewById(R.id.relative_layout_item);
             relativeLayout_item.setOnClickListener(new View.OnClickListener() {
                 @Override

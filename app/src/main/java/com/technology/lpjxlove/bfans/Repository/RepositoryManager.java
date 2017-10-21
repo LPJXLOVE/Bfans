@@ -1,6 +1,7 @@
 package com.technology.lpjxlove.bfans.Repository;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.technology.lpjxlove.bfans.Interface.BasePresenter;
 import com.technology.lpjxlove.bfans.Repository.Task.BattleAddTask;
@@ -16,9 +17,11 @@ import com.technology.lpjxlove.bfans.Repository.Task.LoadingLocalPictureTask;
 import com.technology.lpjxlove.bfans.Repository.Task.ModifyAvatarTask;
 import com.technology.lpjxlove.bfans.Repository.Task.ModifyNickTask;
 import com.technology.lpjxlove.bfans.Repository.Task.Task;
+import com.technology.lpjxlove.bfans.Repository.Task.UpdateInstallation;
 import com.technology.lpjxlove.bfans.Util.Constant;
 
 import java.util.List;
+import java.util.Observable;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -68,6 +71,7 @@ public class RepositoryManager<T> {
 
 
     public void LoadingDataFromRemote() {
+
         Task task=null;
         switch (TaskID) {
             case Constant.BATTLE_MARKET_TASK://约战
@@ -97,6 +101,11 @@ public class RepositoryManager<T> {
 
                 break;
 
+            case Constant.UPDATE_INSTALLATION_TASK:
+                task=new UpdateInstallation();
+                task.setUpLoadObject(object);
+                break;
+
 
             case Constant.GET_ALBUM_PHOTO_TASK:
                 task=new LoadingLocalPictureTask(context);
@@ -119,7 +128,7 @@ public class RepositoryManager<T> {
 
 
     public void setContext(Context context) {
-        this.context = context;
+        this.context = context.getApplicationContext();
     }
 
     public void UpLoadDataToRemote(Object object){

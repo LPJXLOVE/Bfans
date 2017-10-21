@@ -39,7 +39,6 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
     RecyclerView recycleView;
     @InjectView(R.id.swipe_layout)
     SwipeRefreshLayout swipeLayout;
-    private Callback callBack;
     private BattleAdapter mBattleAdapter;
     private MainPresenter presenter;
     private Action1<String> ItemClickListener;
@@ -69,7 +68,6 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
                 LinearLayoutManager manager= (LinearLayoutManager) recyclerView.getLayoutManager();
                 int LastPosition=manager.findLastCompletelyVisibleItemPosition();
                if (newState==RecyclerView.SCROLL_STATE_IDLE&&mBattleAdapter!=null&&LastPosition==mBattleAdapter.getItemCount()-1){
-                  // Toast.makeText(getActivity(), "最后一个", Toast.LENGTH_SHORT).show();
                   presenter.onLoading(Constant.BATTLE_MARKET_TASK,Constant.LOADING_MORE_TASK);
                    swipeLayout.post(new Runnable() {
                        @Override
@@ -79,12 +77,6 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
                    });
 
                }
-                if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
-                    if (callBack==null){
-                        return;
-                    }
-                    callBack.OnCallback("");
-                }
             }
 
         });
@@ -118,7 +110,7 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
                 startActivity(intent);
             }
         };
-        if (presenter==null){
+        if (null==presenter){
             MyApplication myApplication= (MyApplication) getActivity().getApplication();
             presenter=new MainPresenter(myApplication);
         }
@@ -133,20 +125,13 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
         ButterKnife.reset(this);
     }
 
-
-    public void setCallBack(Callback callBack) {
-        this.callBack = callBack;
-    }
-
     public void setPresenter(MainPresenter presenter) {
-        this.presenter = presenter;
-     /*   presenter.setMainView(this);*/
+        /*this.presenter = presenter;*/
     }
 
 
     @Override
     public void setAdapter(List<BattleEntity> data) {
-       // Toast.makeText(getActivity(), ""+data.size(), Toast.LENGTH_SHORT).show();
         mBattleAdapter = new BattleAdapter(data,ItemClickListener);
         recycleView.setAdapter(mBattleAdapter);
     }
@@ -159,7 +144,6 @@ public class BattleFragment extends Fragment implements  MainView<BattleEntity> 
 
     @Override
     public void RefreshAdapter(List<BattleEntity> news, int position) {
-     //   mBattleAdapter.notifyDataSetChanged();
         mBattleAdapter.setData(news);
         mBattleAdapter.notifyDiff();
         recycleView.scrollToPosition(position);

@@ -1,16 +1,12 @@
 package com.technology.lpjxlove.bfans.Util;
 
 import android.content.Context;
-import android.location.Location;
 import android.util.Log;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps2d.LocationSource;
-
-import java.util.logging.Logger;
 
 /**
  * Created by LPJXLOVE on 2016/9/22.
@@ -37,6 +33,8 @@ public class LocationUtils {
             public void onLocationChanged(AMapLocation aMapLocation) {
                 if (aMapLocation!=null){
                     if (aMapLocation.getErrorCode()==0){
+
+                        Constant.Config.provinceName =aMapLocation.getProvince();
                         Constant.Config.cityName=aMapLocation.getCity();
                         Constant.Config.streetName=aMapLocation.getStreet();
                         Constant.Config.districtName=aMapLocation.getDistrict();

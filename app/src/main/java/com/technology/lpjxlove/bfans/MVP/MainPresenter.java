@@ -1,5 +1,7 @@
 package com.technology.lpjxlove.bfans.MVP;
 
+import android.widget.Toast;
+
 import com.technology.lpjxlove.bfans.Bean.Entity;
 import com.technology.lpjxlove.bfans.Interface.BasePresenter;
 import com.technology.lpjxlove.bfans.MyApplication;
@@ -108,6 +110,11 @@ public class MainPresenter implements BasePresenter<Entity> {
     @Override
     public void onLoadingFailed(String tip) {
         mainView.showErrorFrame(tip);
+    }
+
+    @Override
+    public void onComplete() {
+        mainView.OnSuccess();
     }
 
 }

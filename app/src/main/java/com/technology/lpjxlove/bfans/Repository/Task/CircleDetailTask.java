@@ -7,6 +7,7 @@ import com.technology.lpjxlove.bfans.Bean.CircleEntity;
 import com.technology.lpjxlove.bfans.Bean.Comment;
 import com.technology.lpjxlove.bfans.Bean.User;
 import com.technology.lpjxlove.bfans.Util.Constant;
+import com.technology.lpjxlove.bfans.Util.NetRequestQueue;
 import com.technology.lpjxlove.bfans.Util.ResponseCodeUtils;
 
 import java.util.ArrayList;
@@ -73,6 +74,7 @@ public class CircleDetailTask extends Task<CircleDetailEntity> {
                                         if (list.size()!=0){
                                             circleDetailEntity.setLikes(list);
                                         }
+
                                         //query comment data
                                         BmobQuery<Comment> bQuery=new BmobQuery<>();
                                         bQuery.setLimit(5);
@@ -83,7 +85,7 @@ public class CircleDetailTask extends Task<CircleDetailEntity> {
                                         }
 
                                         bQuery.include("Author");
-                                        bQuery.order("-createAt");
+                                        bQuery.order("+createAt");
                                         bQuery.addWhereRelatedTo("Comment",new BmobPointer(circleEntity));
                                         bQuery.findObjects(new FindListener<Comment>() {
                                             @Override

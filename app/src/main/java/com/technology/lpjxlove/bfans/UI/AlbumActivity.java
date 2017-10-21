@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -206,7 +207,8 @@ public class AlbumActivity extends AppCompatActivity implements MainView<Object>
 
     @Override
     public void showErrorFrame(String tip) {
-        Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(recycleView,tip,Snackbar.LENGTH_SHORT).show();
+    //    Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
     }
 
     @Override

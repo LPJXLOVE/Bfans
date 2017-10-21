@@ -10,8 +10,8 @@ android {
             storePassword 'liaopeijian931023'
         }
     }
-    compileSdkVersion 23
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 24
+    buildToolsVersion '25.0.1'
     defaultConfig {
         applicationId "com.technology.lpjxlove.bfans"
         minSdkVersion 16
@@ -23,6 +23,14 @@ android {
         //renderscript
         renderscriptTargetApi = 18
         renderscriptSupportModeEnabled = true
+
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+
     }
     buildTypes {
         release {
@@ -34,6 +42,8 @@ android {
         debug {
             signingConfig signingConfigs.debugConfig
         }
+
+
     }
     repositories {
         flatDir {
@@ -41,6 +51,11 @@ android {
         }
     }
     productFlavors {
+    }
+
+    //解决单元测试中调用不了android api的问题
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
 
@@ -51,8 +66,11 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //dagger2
+
     //bmob
+
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+
     //mob短信验证码
     compile name: 'SMSSDK-2.0.2', ext: 'aar'
     compile files('libs/MobCommons-2016.0303.1229.jar')
@@ -64,13 +82,12 @@ dependencies {
     //转场动画
 
     //二维码
+
     /*自定义*/
-
-
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile files('libs/Bmob_Push_V1.0.0beta_20160627.jar')
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'com.jakewharton:butterknife:5.1.1'
-    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:design:25.1.0'
     compile 'javax.inject:javax.inject:1'
     compile 'javax.annotation:javax.annotation-api:1.2'
     compile 'com.google.dagger:dagger:2.0'
@@ -82,7 +99,18 @@ dependencies {
     compile 'me.immortalz:transitionhelper:1.0.5'
     compile 'me.dm7.barcodescanner:zxing:1.9'
     compile 'com.google.zxing:core:3.2.1'
+    compile 'com.android.support:palette-v7:25.1.0'
+    compile 'com.github.armcha:SpaceNavigationView:1.6.0'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'me.relex:photodraweeview:1.1.2'
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.0'
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
 }

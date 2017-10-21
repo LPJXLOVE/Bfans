@@ -20,9 +20,9 @@
         <item name="android:windowEnterAnimation">@anim/slide_in_</item>
     </style>
 
-    <!--<style name="transParentStateBarStyle" parent="AppTheme">
+    <style name="transParentStateBarStyle" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
-    </style>-->
+    </style>
 
 
 

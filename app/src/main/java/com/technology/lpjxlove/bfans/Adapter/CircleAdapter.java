@@ -24,6 +24,7 @@ import com.technology.lpjxlove.bfans.UI.CustomView.GoodView;
 import com.technology.lpjxlove.bfans.UI.CustomView.NineLayout;
 import com.technology.lpjxlove.bfans.Util.TimeTransformUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -37,10 +38,11 @@ import rx.functions.Action1;
  */
 public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHolder> {
     private Action1<CircleEntity> itemClick;
-    private Action1<String> commentClick,goodNormalClick,goodPressClick, shareClick, avatarClick, imageClick;
+    private Action1<String> commentClick,goodNormalClick,goodPressClick, shareClick, avatarClick, image;
+    private Action1<ArrayList<Integer>> imageClick;
     private Context context;
 
-    public CircleAdapter(Context context,List<CircleEntity> data, Action1<String> imageClick, Action1<String> avatarClick, Action1<String> shareClick, Action1<String> goodNormalClick,Action1<String> goodPressClick, Action1<String> commentClick, Action1<CircleEntity> itemClick) {
+    public CircleAdapter(Context context,List<CircleEntity> data, Action1<ArrayList<Integer>> imageClick, Action1<String> avatarClick, Action1<String> shareClick, Action1<String> goodNormalClick,Action1<String> goodPressClick, Action1<String> commentClick, Action1<CircleEntity> itemClick) {
         super(data);
         this.context=context;
         this.imageClick = imageClick;
@@ -67,7 +69,7 @@ public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHold
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
+    public void onBindViewHolder(MyHolder holder, final int position) {
         User user=data.get(position).getAuthor();
         if (user.getAvatarUrl()!=null){
             String path=user.getAvatarUrl();
@@ -105,6 +107,16 @@ public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHold
         NineGridPhotoAdapter adapter=new NineGridPhotoAdapter(context,data.get(position).getBitmapUrl());
         holder.nineLayout.setVisibility(View.VISIBLE);
         holder.nineLayout.setAdapter(adapter,1);
+        holder.nineLayout.setOnItemClickListener(new NineLayout.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int imagePosition) {
+                ArrayList<Integer> list= new ArrayList<Integer>();
+                list.add(position);
+                list.add(imagePosition);
+               imageClick.call(list);
+            }
+        });
+
 
         if (data.get(position).isLike()){
             holder.ivGood.setPress(true);
@@ -132,7 +144,7 @@ public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHold
     static class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener,GoodView.OnLikesListener {
         @InjectView(R.id.iv_avatar)
         SimpleDraweeView ivAvatar;
-        @InjectView(R.id.tv_rank)
+        @InjectView(R.id.tv_nick)
         TextView tvNick;
         @InjectView(R.id.tv_time)
         TextView tvTime;
@@ -158,7 +170,8 @@ public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHold
         RelativeLayout relativeLayout;
         private Observable<String> observable;
         private Observable<CircleEntity> observable2;
-        private Action1<String> commentClick,goodNormalClick,goodPressClick,shareClick,avatarClick,imageClick;
+        private Action1<String> commentClick,goodNormalClick,goodPressClick,shareClick,avatarClick;
+        private Action1<ArrayList<Integer>> imageClick;
         private Action1<CircleEntity> commentItemClick;
         private List<CircleEntity> list;
 
@@ -183,7 +196,7 @@ public class CircleAdapter extends BaseAdapter<CircleEntity,CircleAdapter.MyHold
             this.avatarClick = avatarClick;
         }
 
-        void setImageClick(Action1<String> imageClick) {
+        void setImageClick(Action1<ArrayList<Integer>> imageClick) {
             this.imageClick = imageClick;
         }
 

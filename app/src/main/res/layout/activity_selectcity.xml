@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/titleBar"
+        android:background="@color/colorPrimary"
+        app:title="城市列表"
+        app:navigationIcon="?homeAsUpIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F9F6F1" >
+
+        <EditText
+            android:padding="8dp"
+            android:id="@+id/searchEditext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rectangle"
+            android:drawableLeft="@drawable/ic_place_black_16dp"
+            android:drawableStart="@drawable/ic_place_black_16dp"
+            android:drawablePadding="16dp"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:hint="搜索城市 (中文/拼音)" />
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <ImageView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/ic_location"/>
+        <TextView 
+            android:id="@+id/tv_current_city"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="正在定位..."
+            android:textColor="#F0816E"
+            />
+        <TextView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textColor="#cccccc"
+            android:text="GPS定位"/>
+        <ImageView
+            android:id="@+id/iv_location_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            />
+    </LinearLayout>
+    <View 
+        android:layout_height="0.5dp"
+        android:layout_width="match_parent"
+        android:background="#cccccc"/>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ListView
+            android:id="@+id/lv_province"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:divider="@null" />
+
+        <TextView
+            android:id="@+id/tv_dialog"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:background="@color/color_gray"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="36dp"
+            android:visibility="invisible" />
+
+        <com.technology.lpjxlove.bfans.UI.CustomView.AlphabetSlideBar
+            android:id="@+id/v_slidingbar"
+            android:layout_width="24dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
+</LinearLayout>

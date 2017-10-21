@@ -49,4 +49,9 @@ public class PhotoPresenter implements BasePresenter<Object> {
     public void onLoadingFailed(String tip) {
 
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

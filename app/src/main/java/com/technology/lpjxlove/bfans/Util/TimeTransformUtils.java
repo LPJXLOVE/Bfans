@@ -18,6 +18,7 @@ public class TimeTransformUtils {
         int months = Integer.valueOf(date.substring(5, 7));
         int days = Integer.valueOf(date.substring(8, 10));
         int hours = Integer.valueOf(date.substring(11, 13));
+        Log.i("test",""+date);
         int minutes = Integer.valueOf(date.substring(14, 16));
         /*int years = Integer.valueOf(date.substring(0, 4));
         int months = Integer.valueOf(date.substring(5, 7));

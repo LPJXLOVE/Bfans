@@ -4,15 +4,14 @@ package com.technology.lpjxlove.bfans.UI.Fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.technology.lpjxlove.bfans.Adapter.CircleAdapter;
 import com.technology.lpjxlove.bfans.Bean.CircleEntity;
@@ -25,8 +24,10 @@ import com.technology.lpjxlove.bfans.MyApplication;
 import com.technology.lpjxlove.bfans.R;
 import com.technology.lpjxlove.bfans.UI.CircleDetailActivity;
 import com.technology.lpjxlove.bfans.UI.Dialog.ShareDialog;
+import com.technology.lpjxlove.bfans.Util.ActivityUtils;
 import com.technology.lpjxlove.bfans.Util.Constant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobUser;
@@ -40,7 +41,8 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
     private RecyclerView mRecycleView;
     private Callback callback;
     private MainPresenter presenter;
-    private Action1<String> commentClick,goodNormalClick,goodPressClick,shareClick,avatarClick,imageClick;
+    private Action1<String> commentClick,goodNormalClick,goodPressClick,shareClick,avatarClick;
+    private Action1<ArrayList<Integer>>imageClick;
     private Action1<CircleEntity> commentItemClick;
     private CircleAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -56,6 +58,9 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        if (savedInstanceState!=null){
+            isInit=savedInstanceState.getBoolean("isVisible");
+        }
         initEvent();
         View view=inflater.inflate(R.layout.fragment_circle, container, false);
         mRecycleView= (RecyclerView) view.findViewById(R.id.relative_layout);
@@ -70,7 +75,7 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
                 LinearLayoutManager manager= (LinearLayoutManager) recyclerView.getLayoutManager();
                 int LastPosition=manager.findLastCompletelyVisibleItemPosition();
                 if (newState==RecyclerView.SCROLL_STATE_IDLE&&adapter!=null&&LastPosition==adapter.getItemCount()-1){
-                    presenter.onLoading(Constant.BATTLE_MARKET_TASK,Constant.LOADING_MORE_TASK);
+                    presenter.onLoading(Constant.CIRCLE_MARKET_TASK,Constant.LOADING_MORE_TASK);
                     swipeRefreshLayout.post(new Runnable() {
                         @Override
                         public void run() {
@@ -79,26 +84,35 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
                     });
 
                 }
-                if (newState==RecyclerView.SCROLL_STATE_DRAGGING){
-                    if (callback==null){
-                        return;
-                    }
-                    callback.OnCallback("");
-                }
             }
         });
 
         return view;
     }
 
+
+
+
+
+   /* private void initPresenter() {
+        MyApplication application= (MyApplication) getActivity().getApplication();
+        DaggerMainComponent.builder()
+                .mainModule(new MainModule(application))
+                .build()
+                .inject((MainActivity) getActivity());
+        presenter.setMainView(this);
+    }*/
+
+
     //懒加载
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser&&!isInit){
-            if (presenter==null){
-                presenter=new MainPresenter((MyApplication) getActivity().getApplication());
+            if (null==presenter){
+                presenter= new MainPresenter((MyApplication) getActivity().getApplication());
             }
+            presenter.setMainView(this);
             presenter.onLoading(Constant.CIRCLE_MARKET_TASK,Constant.INIT_DATA_TASK);
             isInit=true;
             swipeRefreshLayout.setRefreshing(true);
@@ -152,10 +166,11 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
 
             }
         };
-        imageClick=new Action1<String>() {//图片点击监听
+        imageClick=new Action1<ArrayList<Integer>>() {
             @Override
-            public void call(String s) {
-
+            public void call(ArrayList<Integer> integers) {
+                ArrayList<String> imageUrl= (ArrayList<String>) adapter.getData().get(integers.get(0)).getBitmapUrl();
+                ActivityUtils.gotoPreviewActivity(getActivity(),imageUrl,integers.get(1));
             }
         };
         commentItemClick=new Action1<CircleEntity>() {//整个item点击监听
@@ -175,12 +190,8 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
     }
 
 
-
-
-
     public void setPresenter(MainPresenter presenter) {
-       this.presenter=presenter;
-        this.presenter.setMainView(this);
+       /*this.presenter=presenter;*/
     }
 
     public void setCallback(Callback callback) {
@@ -197,7 +208,8 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
     @Override
     public void showErrorFrame(String tip) {
         swipeRefreshLayout.setRefreshing(false);
-        Toast.makeText(getActivity(), ""+tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(mRecycleView,tip,Snackbar.LENGTH_SHORT).show();
+      //  Toast.makeText(getActivity(), ""+tip, Toast.LENGTH_SHORT).show();
 
 
     }
@@ -248,6 +260,12 @@ public class CircleFragment extends Fragment implements MainView<CircleEntity>,S
         }
 
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isVisible",isInit);
     }
 
     @Override

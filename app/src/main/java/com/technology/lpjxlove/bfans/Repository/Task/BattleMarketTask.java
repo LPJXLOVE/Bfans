@@ -29,6 +29,7 @@ public class BattleMarketTask extends Task<BattleEntity> {
         this.observable= Observable.create(new Observable.OnSubscribe<List<BattleEntity>>() {
             @Override
             public void call(Subscriber<? super List<BattleEntity>> subscriber) {
+
                 BmobQuery<BattleEntity> query=new BmobQuery<>();
                 query.order("-createdAt");
                 query.include("Author");
@@ -46,10 +47,12 @@ public class BattleMarketTask extends Task<BattleEntity> {
 
                             if (list!=null){
                                 Log.i(Constant.TAG, "done: Battle size"+list.size());
-                                if (loadingWays==Constant.LOADING_MORE_TASK ||loadingWays==Constant.INIT_DATA_TASK &&list.size()!=0){
-                                    PlusPager();
+                                if (loadingWays==Constant.LOADING_MORE_TASK ||loadingWays==Constant.INIT_DATA_TASK){
+                                    if (list.size()!=0){
+                                        PlusPager();
+                                    }
                                 }
-
+                                observer.onCompleted();
                                 observer.onNext(list);
 
                             }
@@ -69,6 +72,7 @@ public class BattleMarketTask extends Task<BattleEntity> {
         });
 
         this.observable.subscribe(observer);
+        Log.i("Task", "call: is execute");
     }
 
 

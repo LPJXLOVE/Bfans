@@ -18,11 +18,12 @@ import com.technology.lpjxlove.bfans.UI.CustomView.LoadLayout;
  * Created by LPJXLOVE on 2016/9/11.
  */
 public class LoadingDialog extends DialogFragment{
-
+    private   LoadLayout loadLayout;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
 
         AlertDialog.Builder b = new AlertDialog.Builder(getActivity(), R.style.MyDialog);
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.loading_layout, null);
@@ -33,7 +34,14 @@ public class LoadingDialog extends DialogFragment{
     }
 
     private void initEvent(View v) {
-        LoadLayout loadLayout= (LoadLayout) v.findViewById(R.id.load_layout);
+        loadLayout= (LoadLayout) v.findViewById(R.id.load_layout);
         loadLayout.setText(getTag());
+    }
+
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        loadLayout.Dismiss();
     }
 }

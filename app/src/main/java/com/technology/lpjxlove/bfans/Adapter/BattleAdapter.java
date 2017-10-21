@@ -88,10 +88,17 @@ public class BattleAdapter extends BaseAdapter<BattleEntity,BattleAdapter.MyHold
 
         holder.tv_date.setText(TimeTransformUtils.TimeTransform(data.get(position).getCreatedAt()));
         //
-        if (data.get(position).getState().equals("0")){
-            holder.tv_state.setText("招募中");
-        }else {
-            holder.tv_state.setText("已召满");
+        String state=data.get(position).getState();
+        switch (state) {
+            case "0":
+                holder.tv_state.setText("招募中");
+                break;
+            case "1":
+                holder.tv_state.setText("进行中");
+                break;
+            default:
+                holder.tv_state.setText("已结束");
+                break;
         }
         holder.tv_battleObject.setText(data.get(position).getBattleObject());
         holder.tv_battleType.setText(data.get(position).getBattleType());
@@ -120,7 +127,7 @@ public class BattleAdapter extends BaseAdapter<BattleEntity,BattleAdapter.MyHold
             super(itemView);
             item= (RelativeLayout) itemView.findViewById(R.id.relative_layout_item);
             cardView= (CardView) itemView.findViewById(R.id.card_view);
-            tv_nick= (TextView) itemView.findViewById(R.id.tv_rank);
+            tv_nick= (TextView) itemView.findViewById(R.id.tv_nick);
             tv_date= (TextView) itemView.findViewById(R.id.tv_time);
             tv_battleType= (TextView) itemView.findViewById(R.id.tv_battle_type);
             tv_battle_date= (TextView) itemView.findViewById(R.id.tv_battle_date);

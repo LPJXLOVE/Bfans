@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="province">
+
+        <!-- 特别行政区 -->
+        <item>香港香港</item>
+        <item>澳门澳门</item>
+        <!-- 直辖市 -->
+        <item>北京市北京</item>
+        <item>上海市上海</item>
+        <item>重庆市重庆</item>
+        <item>天津市天津</item>
+        <!-- 副省级市 -->
+        <item>沈阳市辽宁</item>
+        <item>大连市辽宁</item>
+        <item>长春市吉林</item>
+        <item>哈尔滨市黑龙</item>
+        <item>南京市江苏</item>
+        <item>杭州市浙江</item>
+        <item>宁波市浙江</item>
+        <item>厦门市福建</item>
+        <item>济南市山东</item>
+        <item>青岛市山东</item>
+        <item>武汉市湖北</item>
+        <item>广州市广东</item>
+        <item>深圳市广东</item>
+        <item>成都市四川</item>
+        <item>西安市陕西</item>
+        <!-- 河北省 -->
+        <item>石家庄河北</item>
+        <item>保定市河北</item>
+        <item>秦皇岛河北</item>
+        <item>唐山市河北</item>
+        <item>邯郸市河北</item>
+        <item>邢台市河北</item>
+        <item>沧州市河北</item>
+        <item>承德市河北</item>
+        <item>廊坊市河北</item>
+        <item>衡水市河北</item>
+        <item>张家口河北</item>
+        <!-- 山西省 -->
+        <item>太原市山西</item>
+        <item>大同市山西</item>
+        <item>阳泉市山西</item>
+        <item>长治市山西</item>
+        <item>临汾市山西</item>
+        <item>晋中市山西</item>
+        <item>运城市山西</item>
+        <item>晋城市山西</item>
+        <item>忻州市山西</item>
+        <item>朔州市山西</item>
+        <item>吕梁市山西</item>
+        <!-- 内蒙古 -->
+        <item>呼和浩特内蒙</item>
+        <item>呼伦贝尔内蒙</item>
+        <item>内包头市内蒙</item>
+        <item>赤峰市内蒙</item>
+        <item>乌海市内蒙</item>
+        <item>通辽市内蒙</item>
+        <item>鄂尔多斯内蒙</item>
+        <item>乌兰察布内蒙</item>
+        <item>巴彦淖尔内蒙</item>
+        <item>盘锦市内蒙</item>
+        <item>鞍山市内蒙</item>
+        <item>抚顺市内蒙</item>
+        <item>本溪市内蒙</item>
+        <item>铁岭市内蒙</item>
+        <item>锦州市内蒙</item>
+        <item>丹东市内蒙</item>
+        <item>辽阳市内蒙</item>
+        <item>葫芦岛内蒙</item>
+        <item>阜新市内蒙</item>
+        <item>朝阳市内蒙</item>
+        <item>营口市内蒙</item>
+        <!-- 吉林省 -->
+        <item>吉林市吉林</item>
+        <item>通化市吉林</item>
+        <item>白城市吉林</item>
+        <item>四平市吉林</item>
+        <item>辽源市吉林</item>
+        <item>松原市吉林</item>
+        <item>白山市吉林</item>
+        <!-- 黑龙江省 -->
+        <item>伊春市黑龙</item>
+        <item>牡丹江黑龙</item>
+        <item>大庆市黑龙</item>
+        <item>鸡西市黑龙</item>
+        <item>鹤岗市黑龙</item>
+        <item>绥化市黑龙</item>
+        <item>双鸭山黑龙</item>
+        <item>七台河黑龙</item>
+        <item>佳木斯黑龙</item>
+        <item>黑河市黑龙</item>
+        <item>齐齐哈尔市黑龙</item>
+        <!-- 江苏省 -->
+        <item>无锡市江苏</item>
+        <item>常州市江苏</item>
+        <item>扬州市江苏</item>
+        <item>徐州市江苏</item>
+        <item>苏州市江苏</item>
+        <item>连云港江苏</item>
+        <item>盐城市江苏</item>
+        <item>淮安市江苏</item>
+        <item>宿迁市江苏</item>
+        <item>镇江市江苏</item>
+        <item>南通市江苏</item>
+        <item>泰州市江苏</item>
+        <!-- 浙江省 -->
+        <item>绍兴市浙江</item>
+        <item>温州市浙江</item>
+        <item>湖州市浙江</item>
+        <item>嘉兴市浙江</item>
+        <item>台州市浙江</item>
+        <item>金华市浙江</item>
+        <item>舟山市浙江</item>
+        <item>衢州市浙江</item>
+        <item>丽水市浙江</item>
+        <!-- 安徽省 -->
+        <item>合肥市安徽</item>
+        <item>芜湖市安徽</item>
+        <item>亳州市安徽</item>
+        <item>马鞍山安徽</item>
+        <item>池州市安徽</item>
+        <item>淮南市安徽</item>
+        <item>淮北市安徽</item>
+        <item>蚌埠市安徽</item>
+        <item>巢湖市安徽</item>
+        <item>安庆市安徽</item>
+        <item>宿州市安徽</item>
+        <item>宣城市安徽</item>
+        <item>滁州市安徽</item>
+        <item>黄山市安徽</item>
+        <item>六安市安徽</item>
+        <item>阜阳市安徽</item>
+        <item>铜陵市安徽</item>
+        <!-- 福建省 -->
+        <item>福州市福建</item>
+        <item>泉州市福建</item>
+        <item>漳州市福建</item>
+        <item>南平市福建</item>
+        <item>三明市福建</item>
+        <item>龙岩市福建</item>
+        <item>莆田市福建</item>
+        <item>宁德市福建</item>
+        <!-- 江西省 -->
+        <item>南昌市江西</item>
+        <item>赣州市江西</item>
+        <item>景德镇江西</item>
+        <item>九江市江西</item>
+        <item>萍乡市江西</item>
+        <item>新余市江西</item>
+        <item>抚州市江西</item>
+        <item>宜春市江西</item>
+        <item>上饶市江西</item>
+        <item>鹰潭市江西</item>
+        <item>吉安市江西</item>
+        <!-- 山东省 -->
+        <item>潍坊市山东</item>
+        <item>淄博市山东</item>
+        <item>威海市山东</item>
+        <item>枣庄市山东</item>
+        <item>泰安市山东</item>
+        <item>临沂市山东</item>
+        <item>东营市山东</item>
+        <item>济宁市山东</item>
+        <item>烟台市山东</item>
+        <item>菏泽市山东</item>
+        <item>日照市山东</item>
+        <item>德州市山东</item>
+        <item>聊城市山东</item>
+        <item>滨州市山东</item>
+        <item>莱芜市山东</item>
+        <!-- 河南省 -->
+        <item>郑州市河南</item>
+        <item>洛阳市河南</item>
+        <item>焦作市河南</item>
+        <item>商丘市河南</item>
+        <item>信阳市河南</item>
+        <item>新乡市河南</item>
+        <item>安阳市河南</item>
+        <item>开封市河南</item>
+        <item>漯河市河南</item>
+        <item>南阳市河南</item>
+        <item>鹤壁市河南</item>
+        <item>平顶山河南</item>
+        <item>濮阳市河南</item>
+        <item>许昌市河南</item>
+        <item>周口市河南</item>
+        <item>三门峡河南</item>
+        <item>驻马店河南</item>
+        <!-- 湖北省 -->
+        <item>荆门市湖北</item>
+        <item>咸宁市湖北</item>
+        <item>襄樊市湖北</item>
+        <item>荆州市湖北</item>
+        <item>黄石市湖北</item>
+        <item>宜昌市湖北</item>
+        <item>随州市湖北</item>
+        <item>鄂州市湖北</item>
+        <item>孝感市湖北</item>
+        <item>黄冈市湖北</item>
+        <item>十堰市湖北</item>
+        <!-- 湖南省 -->
+        <item>长沙市湖南</item>
+        <item>郴州市湖南</item>
+        <item>娄底市湖南</item>
+        <item>衡阳市湖南</item>
+        <item>株洲市湖南</item>
+        <item>湘潭市湖南</item>
+        <item>岳阳市湖南</item>
+        <item>常德市湖南</item>
+        <item>邵阳市湖南</item>
+        <item>益阳市湖南</item>
+        <item>永州市湖南</item>
+        <item>张家界湖南</item>
+        <item>怀化市湖南</item>
+        <!-- 广东省 -->
+        <item>江门市广东</item>
+        <item>佛山市广东</item>
+        <item>汕头市广东</item>
+        <item>湛江市广东</item>
+        <item>韶关市广东</item>
+        <item>中山市广东</item>
+        <item>珠海市广东</item>
+        <item>茂名市广东</item>
+        <item>肇庆市广东</item>
+        <item>阳江市广东</item>
+        <item>惠州市广东</item>
+        <item>潮州市广东</item>
+        <item>揭阳市广东</item>
+        <item>清远市广东</item>
+        <item>河源市广东</item>
+        <item>东莞市广东</item>
+        <item>汕尾市广东</item>
+        <item>云浮市广东</item>
+        <!-- 广西省 -->
+        <item>南宁市广西</item>
+        <item>贺州市广西</item>
+        <item>柳州市广西</item>
+        <item>桂林市广西</item>
+        <item>梧州市广西</item>
+        <item>北海市广西</item>
+        <item>玉林市广西</item>
+        <item>钦州市广西</item>
+        <item>百色市广西</item>
+        <item>防城港广西</item>
+        <item>贵港市广西</item>
+        <item>河池市广西</item>
+        <item>崇左市广西</item>
+        <item>来宾市广西</item>
+        <!-- 海南省 -->
+        <item>海口市海南</item>
+        <item>三亚市海南</item>
+        <item>三沙市海南</item>
+        <!-- 四川省 -->
+        <item>乐山市四川</item>
+        <item>雅安市四川</item>
+        <item>广安市四川</item>
+        <item>南充市四川</item>
+        <item>自贡市四川</item>
+        <item>泸州市四川</item>
+        <item>内江市四川</item>
+        <item>宜宾市四川</item>
+        <item>广元市四川</item>
+        <item>达州市四川</item>
+        <item>资阳市四川</item>
+        <item>绵阳市四川</item>
+        <item>眉山市四川</item>
+        <item>巴中市四川</item>
+        <item>攀枝花四川</item>
+        <item>遂宁市四川</item>
+        <item>德阳市四川</item>
+        <!-- 贵州省 -->
+        <item>贵阳市贵州</item>
+        <item>安顺市贵州</item>
+        <item>遵义市贵州</item>
+        <item>六盘水贵州</item>
+        <!-- 云南省 -->
+        <item>昆明市云南</item>
+        <item>玉溪市云南</item>
+        <item>大理市云南</item>
+        <item>曲靖市云南</item>
+        <item>昭通市云南</item>
+        <item>保山市云南</item>
+        <item>丽江市云南</item>
+        <item>临沧市云南</item>
+        <!-- 西藏 -->
+        <item>拉萨市西藏</item>
+        <!-- 陕西省 -->
+        <item>咸阳市陕西</item>
+        <item>榆林市陕西</item>
+        <item>宝鸡市陕西</item>
+        <item>铜川市陕西</item>
+        <item>渭南市陕西</item>
+        <item>汉中市陕西</item>
+        <item>安康市陕西</item>
+        <item>商洛市陕西</item>
+        <item>延安市陕西</item>
+        <!-- 甘肃省 -->
+        <item>兰州市甘肃</item>
+        <item>白银市甘肃</item>
+        <item>武威市甘肃</item>
+        <item>金昌市甘肃</item>
+        <item>平凉市甘肃</item>
+        <item>张掖市甘肃</item>
+        <item>嘉峪关甘肃</item>
+        <item>酒泉市甘肃</item>
+        <item>庆阳市甘肃</item>
+        <item>定西市甘肃</item>
+        <item>陇南市甘肃</item>
+        <item>天水市甘肃</item>
+        <!-- 青海省 -->
+        <item>西宁市青海</item>
+        <!-- 宁夏省 -->
+        <item>银川市宁夏</item>
+        <item>固原市宁夏</item>
+        <item>青铜峡市宁夏</item>
+        <item>石嘴山市宁夏</item>
+        <item>中卫市宁夏</item>
+        <!-- 新疆 -->
+        <item>乌鲁木齐新疆</item>
+        <item>克拉玛依市新疆</item>
+    </string-array>
+    <string-array name="manNumber">
+        <item>1人</item>
+        <item>2人</item>
+        <item>3人</item>
+        <item>4人</item>
+        <item>5人</item>
+        <item>6人</item>
+        <item>7人</item>
+        <item>8人</item>
+        <item>9人</item>
+        <item>10人</item>
+    </string-array>
+    <string-array name="areaType">
+        <item>大海</item>
+        <item>草原</item>
+        <item>山脉</item>
+        <item>戈壁</item>
+        <item>森林</item>
+        <item>城市</item>
+        <item>古城</item>
+        <item>河流</item>
+        <item>湖泊</item>
+        <item>花海</item>
+        <item>其它</item>
+    </string-array>
+
+</resources>

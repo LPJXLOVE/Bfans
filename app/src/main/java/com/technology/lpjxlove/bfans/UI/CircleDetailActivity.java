@@ -3,6 +3,7 @@ package com.technology.lpjxlove.bfans.UI;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,9 @@ import com.technology.lpjxlove.bfans.MVP.PullAndPushPresenter;
 import com.technology.lpjxlove.bfans.MVP.PullAndPushView;
 import com.technology.lpjxlove.bfans.MyApplication;
 import com.technology.lpjxlove.bfans.R;
+import com.technology.lpjxlove.bfans.UI.CustomView.PreviewPhoto.PreviewActivity;
 import com.technology.lpjxlove.bfans.UI.Dialog.ShareDialog;
+import com.technology.lpjxlove.bfans.Util.ActivityUtils;
 import com.technology.lpjxlove.bfans.Util.Constant;
 import com.technology.lpjxlove.bfans.Util.KeyboardUtil;
 
@@ -190,7 +193,8 @@ public class CircleDetailActivity extends AppCompatActivity implements PullAndPu
         imageClick = new Action1<String>() {//图片点击监听
             @Override
             public void call(String s) {
-
+                ActivityUtils.gotoPreviewActivity(CircleDetailActivity.this,(ArrayList<String>) data.get(0).getBitmapUrl()
+                        ,Integer.valueOf(s));
             }
         };
         commentItemClick = new Action1<String>() {//项目点击监听
@@ -239,7 +243,8 @@ public class CircleDetailActivity extends AppCompatActivity implements PullAndPu
         if (tip==null){
             return;
         }
-        Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(tvComment,tip,Snackbar.LENGTH_SHORT).show();
+       // Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -250,7 +255,8 @@ public class CircleDetailActivity extends AppCompatActivity implements PullAndPu
             Presenter.onLoading(Constant.QUERY_CIRCLE_COMMENT_AND_LIKES_TASK, Constant.REFRESH_TASK);//评论成功后刷新数据
             KeyboardUtil.dismissKeyboard(this,etComment);
         }
-        Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
+        Snackbar.make(tvComment,tip,Snackbar.LENGTH_SHORT).show();
+       // Toast.makeText(this, tip, Toast.LENGTH_SHORT).show();
         swipeLayout.setRefreshing(false);
     }
 
@@ -308,5 +314,12 @@ public class CircleDetailActivity extends AppCompatActivity implements PullAndPu
         }
 
         super.onBackPressed();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Presenter=null;
     }
 }

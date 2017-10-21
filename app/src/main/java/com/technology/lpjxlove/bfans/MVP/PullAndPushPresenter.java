@@ -152,4 +152,9 @@ public class PullAndPushPresenter implements BasePresenter<CircleDetailEntity> {
         }
 
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

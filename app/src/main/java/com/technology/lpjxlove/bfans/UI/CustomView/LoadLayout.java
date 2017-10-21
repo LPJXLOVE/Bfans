@@ -18,7 +18,7 @@ import com.technology.lpjxlove.bfans.R;
  * Created by LPJXLOVE on 2016/5/8.
  */
 public class LoadLayout extends FrameLayout {
-    private ImageView LoadImgage;//加载项中顶部图片
+    private ImageView LoadImage;//加载项中顶部图片
     private DampingView LoadText;//跳动文字控件
     private String text;
     private int TextColor;//文字颜色
@@ -52,20 +52,20 @@ public class LoadLayout extends FrameLayout {
     private void InitData() {
        View view= LayoutInflater.from(context).inflate(R.layout.loadinglayout,this);
         LoadText= (DampingView) view.findViewById(R.id.load_text);
-        LoadImgage= (ImageView) view.findViewById(R.id.imageView);
+        LoadImage = (ImageView) view.findViewById(R.id.imageView);
         LoadText.setmTextColor(TextColor);
         LoadText.setTEXT_SIZE(TextSize);
         LoadText.setText(text);
-        LoadImgage.setImageDrawable(LoadDrawable);
+        LoadImage.setImageDrawable(LoadDrawable);
         startAnim();
     }
 
    private Animator down, up;
     protected void startAnim(){
         down= AnimatorInflater.loadAnimator(context, R.animator.enter);
-        down.setTarget(LoadImgage);
+        down.setTarget(LoadImage);
         up=AnimatorInflater.loadAnimator(context, R.animator.exit);
-        up.setTarget(LoadImgage);
+        up.setTarget(LoadImage);
         down.start();
         down.addListener(new Animator.AnimatorListener() {
             @Override
@@ -118,8 +118,7 @@ public class LoadLayout extends FrameLayout {
     }
 
     public void setText(String text) {
-        this.text = text;
-        postInvalidate();
+        LoadText.setText(text);
     }
 
     public void Dismiss(){
